@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls.base import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.edit import DeleteView
-from .models import Post, Category
+from .models import Post
 from .forms import EditForm, PostForm
 from django.urls import reverse_lazy
 #def home(request):
