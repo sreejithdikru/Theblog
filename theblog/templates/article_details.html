@@ -5,12 +5,13 @@
 
 <h2>{{ post.title }}</h2>
 <small>By: {{post.author.first_name}} {{post.author.first_name}}- {{post.post_date}}
+ {{user.id}}
 
     {% if user.is_authenticated %}
-
-        <a href="{% url 'edit_post' post.pk %}" > (edit) </a>
-        <a href="{% url 'delete_post' post.pk %}" >(delete)</a>
-        
+        {% if user.id == post.author.id %}
+            <a href="{% url 'edit_post' post.pk %}" > (edit) </a>
+            <a href="{% url 'delete_post' post.pk %}" >(delete)</a>
+        {%endif%}
     {%endif%}
 </small><br/>
 <hr>
