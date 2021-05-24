@@ -3,17 +3,19 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+        <h2> Delete : {{post.title}} </h2>
+        <br/>
 
-    <h2> Delete : {{post.title}} </h2>
-    <br/>
+        <div class="from-group">
+            <form method="POST">
+                {% csrf_token %}
+                <strong> are you sure?</strong> <br/>
+        
+                <button class="btn btn-secondary">Delete</button>
+            </div>
 
-    <div class="from-group">
-        <form method="POST">
-            {% csrf_token %}
-            <strong> are you sure?</strong> <br/>
-    
-            <button class="btn btn-secondary">Delete</button>
-        </div>
+    {%endif%}
 {%else%}
     Entry Restricted
     
