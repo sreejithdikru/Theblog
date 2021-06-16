@@ -1,12 +1,12 @@
 from django import forms
 from django.forms import fields, models, widgets
-from .models import Post
+from .models import *
 
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'title_tag', 'author', 'body')
+        fields = ('title', 'title_tag', 'author', 'body','upload_img')
 
         widgets = {
 
@@ -15,6 +15,7 @@ class PostForm(forms.ModelForm):
             'author' : forms.TextInput(attrs= {'class': 'form-control', 'value' : '', 'id':'writer', 'type' : 'hidden'}),
             #'author' : forms.Select(attrs= {'class': 'form-control'}),
             'body' : forms.Textarea(attrs= {'class': 'form-control'}),
+            'upload_img' : forms.FileInput(attrs= {'class': 'form-control'}),
 
         }
 
@@ -30,3 +31,4 @@ class EditForm(forms.ModelForm):
             'body' : forms.Textarea(attrs= {'class': 'form-control'}),
 
         }
+
